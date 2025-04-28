@@ -91,9 +91,19 @@ def is_even: Fn(num: isize) = {
 
 構造体定義は以下の様になります
 ```
-def point: Struct = {
+def Point: Struct = {
     x: isize,
     y: isize,
+}
+
+// もしくはメソッドと同時定義で
+def Vec2: Struct = {
+    n: isize,
+    m: isize,
+} {
+    def new = {
+        // 実装...
+    }
 }
 ```
 
@@ -103,6 +113,38 @@ def City: Enum = {
     Tokyo,
     NewYork,
     London
+}
+
+// メソッドと同時定義で
+def Color: Enum = {
+    Red,
+    Green,
+    Yellow,
+} {
+    def new = {
+        // 実装...
+    }
+}
+```
+
+型エイリアスは以下の様になります
+```
+def VecStruct: Type = RawVecStruct
+```
+
+改造は以下のようになります
+```
+def Vec: Derive = VecStruct {
+    def new = {
+        // 実装...
+    }
+}
+
+// すでにメソッド群をもつものでもokです
+def Vec2extend: Derive = Vec2 {
+    def dot = {
+        // 実装..
+    }
 }
 ```
 
