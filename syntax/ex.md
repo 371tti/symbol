@@ -84,7 +84,7 @@ str			    // 文字列スライス(基本参照として使う)
 ## 定義
 関数定義は以下の様になります
 ```
-def is_even: Fn(num: isize) = {
+def is_even: Fn(num: isize) -> bool = {
     num % 1 == 0
 }
 ```
